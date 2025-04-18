@@ -132,6 +132,14 @@ body {
     transition: color 0.2s;
 }
 
+
+.pie-theme .widget  {
+    background-color: transparent;
+    color: var(--footer-text-color, #333);
+}
+
+
+
 .footer-nav a:hover {
     color: #fff;
 }

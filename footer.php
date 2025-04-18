@@ -20,7 +20,7 @@ $footer_text_color = isset($options['footer_text_color']) ? $options['footer_tex
 
 </div><!-- cierre del contenedor principal que envuelve todo el contenido de la página -->
 
-<footer id="colophon" class="site-footer py-4">
+<footer id="colophon" class="site-footer py-4 pie-theme">
     <div class="container">
         <div class="row">
             <?php if (is_active_sidebar('footer-1')) : ?>
