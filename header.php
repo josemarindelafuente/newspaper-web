@@ -13,6 +13,18 @@ $menu_layout = isset($options['menu_layout']) ? $options['menu_layout'] : 'class
 <head>
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <?php
+    // Mostrar el favicon si está configurado
+    if (!empty($options['site_favicon'])) {
+        echo '<link rel="icon" href="' . esc_url($options['site_favicon']) . '" type="image/x-icon" />';
+        echo '<link rel="shortcut icon" href="' . esc_url($options['site_favicon']) . '" type="image/x-icon" />';
+    }
+
+    // Mostrar el código de Google Analytics si está configurado
+    if (!empty($options['google_analytics_code'])) {
+        echo $options['google_analytics_code'];
+    }
+    ?>
     <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>

@@ -149,6 +149,17 @@ function newspaperweb_sanitize_options($input) {
         $valid_input['site_favicon'] = esc_url_raw($input['site_favicon']);
     }
     
+    // Sanitizar código de Google Analytics
+    if (isset($input['google_analytics_code'])) {
+        $valid_input['google_analytics_code'] = wp_kses($input['google_analytics_code'], array(
+            'script' => array(
+                'async' => array(),
+                'src' => array(),
+                'type' => array()
+            )
+        ));
+    }
+    
     return $valid_input;
 }
 
@@ -201,7 +212,8 @@ class NewspaperWeb_Theme_Options {
             'colors' => __('Colores', 'newspaperweb'),
             'layout' => __('Diseño', 'newspaperweb'),
             'social' => __('Redes Sociales', 'newspaperweb'),
-            'posts' => __('Configuración de Posts', 'newspaperweb')
+            'posts' => __('Configuración de Posts', 'newspaperweb'),
+            'analytics' => __('Google Analytics', 'newspaperweb')
         );
         
         // Establecer la pestaña activa desde la URL o usar 'general' por defecto
@@ -250,7 +262,8 @@ class NewspaperWeb_Theme_Options {
                     'menu_font_size' => '14px',
                     'menu_text_transform' => 'none',
                     'menu_font_weight' => '400',
-                    'menu_layout' => 'classic'
+                    'menu_layout' => 'classic',
+                    'google_analytics_code' => ''
                 )
             )
         );
@@ -279,6 +292,10 @@ class NewspaperWeb_Theme_Options {
                 
             case 'posts':
                 $this->register_posts_settings();
+                break;
+                
+            case 'analytics':
+                $this->register_analytics_settings();
                 break;
         }
     }
@@ -688,6 +705,47 @@ class NewspaperWeb_Theme_Options {
             'newspaperweb-options',
             'newspaperweb_posts_section'
         );
+    }
+
+    /**
+     * Registrar configuraciones de Google Analytics
+     */
+    private function register_analytics_settings() {
+        // Sección para Google Analytics
+        add_settings_section(
+            'newspaperweb_analytics_section',
+            __('Configuración de Google Analytics', 'newspaperweb'),
+            array($this, 'analytics_section_callback'),
+            'newspaperweb-options'
+        );
+
+        // Campo para el código de Google Analytics
+        add_settings_field(
+            'google_analytics_code',
+            __('Código de Google Analytics', 'newspaperweb'),
+            array($this, 'google_analytics_code_callback'),
+            'newspaperweb-options',
+            'newspaperweb_analytics_section'
+        );
+    }
+
+    /**
+     * Callback para la sección de Google Analytics
+     */
+    public function analytics_section_callback() {
+        echo '<p>' . __('Pega aquí el código de seguimiento de Google Analytics. Este código se insertará automáticamente en el encabezado de tu sitio.', 'newspaperweb') . '</p>';
+    }
+
+    /**
+     * Callback para el campo de código de Google Analytics
+     */
+    public function google_analytics_code_callback() {
+        $options = get_option('newspaperweb_options');
+        $code = isset($options['google_analytics_code']) ? $options['google_analytics_code'] : '';
+        ?>
+        <textarea id="google_analytics_code" name="newspaperweb_options[google_analytics_code]" rows="10" cols="50" class="large-text code"><?php echo esc_textarea($code); ?></textarea>
+        <p class="description"><?php _e('Pega el código de seguimiento completo de Google Analytics (incluyendo las etiquetas &lt;script&gt;).', 'newspaperweb'); ?></p>
+        <?php
     }
 
     /**
