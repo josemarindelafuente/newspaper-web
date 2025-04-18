@@ -1,0 +1,783 @@
+/*
+Theme Name: Newspaper Web
+Theme URI: https://github.com/josemarindelafuente/newspaper-web
+Author: Marín de la Fuente
+Author URI: https://www.marindelafuente.com.ar
+Description: A basic WordPress theme that will be transformed into a newspaper website theme. Based on Bootstrap 5.
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: newspaperweb
+*/
+
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    /*padding: 0 15px;*/
+}
+
+/* Estilos básicos para el encabezado */
+.site-header {
+    background: #f8f8f8;
+    padding: 2px 0;
+    margin-bottom: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+
+
+/* Estilos básicos para el contenido */
+.site-content {
+    padding: 20px 0;
+}
+
+/* Estilos básicos para el pie de página */
+.site-footer {
+    background: #f8f8f8;
+    padding: 20px 0;
+    margin-top: 20px;
+    border-top: 1px solid rgba(0,0,0,0.1);
+}
+
+/* Estilos para el header */
+.site-title a {
+    color: #333;
+    font-weight: 700;
+}
+
+.site-description {
+    opacity: 0.7;
+}
+
+/* Estilos para el logo */
+.site-logo {
+    max-height: 50px;
+    width: auto;
+}
+
+/* Estilos para el contenido */
+.entry-title {
+    font-weight: 700;
+}
+
+.entry-meta {
+    font-size: 0.85rem;
+}
+
+/* Estilo para la imagen destacada */
+.card-img-top img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+/* Personalización de la paginación */
+.pagination .current {
+    background-color: #0d6efd;
+    color: #fff;
+}
+
+/* Estilos para los widgets */
+.widget-title {
+    font-size: 1.25rem;
+    margin-bottom: 15px;
+}
+
+.widget ul {
+    padding-left: 1rem;
+}
+
+.widget ul li {
+    margin-bottom: 0.5rem;
+}
+
+/* Estilos para el pie de página */
+.site-info {
+    text-align: right;
+}
+
+/* Estilos para el menú del pie de página */
+.footer-nav {
+    padding-left: 0;
+    list-style: none;
+    margin-bottom: 1rem;
+}
+
+.footer-nav li {
+    display: inline-block;
+    margin-right: 1rem;
+}
+
+.footer-nav li:last-child {
+    margin-right: 0;
+}
+
+.footer-nav a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.2s;
+}
+
+.footer-nav a:hover {
+    color: #fff;
+}
+
+.admin-links a {
+    opacity: 0.7;
+    transition: opacity 0.2s;
+}
+
+.admin-links a:hover {
+    opacity: 1;
+    text-decoration: none;
+}
+
+/* Estilos responsivos */
+@media (max-width: 767.98px) {
+    .site-info {
+        text-align: center;
+        margin-top: 2rem;
+    }
+    
+    .footer-nav {
+        justify-content: center;
+        margin-bottom: 1.5rem;
+    }
+    
+    .site-logo {
+        max-height: 40px;
+    }
+}
+
+/* Ajustes para las tarjetas de artículos */
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+/* Estilo para botones */
+.btn-primary {
+    padding: 0.375rem 1rem;
+}
+
+/* Estilos para el menú centrado */
+.menu-layout-centered .navbar-collapse {
+    flex-grow: 0;
+}
+
+.menu-layout-centered .navbar-nav {
+    margin: 0 auto;
+}
+
+/* Estilos para el menú vertical */
+.menu-layout-vertical .navbar {
+    padding: 0;
+}
+
+.menu-layout-vertical .navbar-collapse {
+    flex-basis: 100%;
+}
+
+.menu-layout-vertical .navbar-nav {
+    width: 100%;
+}
+
+.menu-layout-vertical .nav-item {
+    width: 100%;
+}
+
+.menu-layout-vertical .nav-link {
+    padding: 0.5rem 1rem;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.menu-layout-vertical .nav-link:last-child {
+    border-bottom: none;
+}
+
+/* Estilos para el menú clásico */
+.menu-layout-classic .navbar-nav {
+    margin-left: auto;
+}
+
+/* Estilos generales del menú */
+.navbar-nav .nav-link {
+    padding: 0.5rem 1rem;
+    transition: all 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+    background-color: rgba(0,0,0,0.05);
+}
+
+@media (max-width: 991.98px) {
+    .menu-layout-vertical .navbar-collapse {
+        margin-top: 1rem;
+    }
+    
+    .menu-layout-centered .navbar-collapse {
+        margin-top: 1rem;
+    }
+}
+
+/* Estilos mejorados para los widgets del sidebar */
+.widget {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    margin-bottom: 2rem;
+    padding: 1rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.widget:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.widget-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid #f0f0f0;
+    position: relative;
+}
+
+.widget-title:after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background: #0d6efd;
+}
+
+/* Estilos para listas de widgets */
+.widget ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.widget ul li {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid #f0f0f0;
+    transition: all 0.3s ease;
+}
+
+.widget ul li:last-child {
+    border-bottom: none;
+}
+
+.widget ul li:hover {
+    padding-left: 5px;
+}
+
+.widget ul li a {
+    color: #555;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.widget ul li a:hover {
+    color: #0d6efd;
+}
+
+/* Estilos para widgets de búsqueda */
+.widget_search .search-form {
+    position: relative;
+}
+
+.widget_search .search-field {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.widget_search .search-field:focus {
+    border-color: #0d6efd;
+    box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+}
+
+.widget_search .search-submit {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    padding: 0 1rem;
+    background: #0d6efd;
+    border: none;
+    color: #fff;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.widget_search .search-submit:hover {
+    background: #0b5ed7;
+}
+
+/* Estilos para widgets de categorías */
+.widget_categories select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+/* Estilos para widgets de etiquetas */
+.tagcloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.tagcloud a {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: #f8f9fa;
+    color: #555;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 0.875rem !important;
+    transition: all 0.3s ease;
+}
+
+.tagcloud a:hover {
+    background: #0d6efd;
+    color: #fff;
+}
+
+/* Estilos para widgets de texto */
+.widget_text {
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.widget_text p:last-child {
+    margin-bottom: 0;
+}
+
+/* Estilos para widgets de calendario */
+.widget_calendar table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.widget_calendar caption {
+    caption-side: top;
+    text-align: center;
+    font-weight: 600;
+    padding: 0.5rem;
+    background: #f8f9fa;
+    border-radius: 4px 4px 0 0;
+}
+
+.widget_calendar th,
+.widget_calendar td {
+    text-align: center;
+    padding: 0.5rem;
+    border: 1px solid #e0e0e0;
+}
+
+.widget_calendar th {
+    background: #f8f9fa;
+    font-weight: 600;
+}
+
+.widget_calendar tfoot td {
+    border: none;
+    padding-top: 0.5rem;
+}
+
+.widget_calendar tfoot a {
+    color: #0d6efd;
+    text-decoration: none;
+}
+
+/* Estilos para imágenes en single.php */
+
+.card-body-single {
+    border: 0px;
+}
+
+.card-img-top {
+    position: relative;
+    overflow: hidden;
+    padding-top: 56.25%; /* Proporción 16:9 */
+    background-color: #f8f9fa;
+}
+
+.card-img-top img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.card-img-top:hover img {
+    transform: scale(1.05);
+}
+
+/* Estilos para imágenes dentro del contenido */
+.entry-content img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 1.5rem auto;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.entry-content img.alignleft {
+    float: left;
+    margin: 0 1.5rem 1.5rem 0;
+}
+
+.entry-content img.alignright {
+    float: right;
+    margin: 0 0 1.5rem 1.5rem;
+}
+
+.entry-content img.aligncenter {
+    display: block;
+    margin: 1.5rem auto;
+}
+
+/* Ajustes responsivos para imágenes */
+@media (max-width: 768px) {
+    .entry-content img.alignleft,
+    .entry-content img.alignright {
+        float: none;
+        margin: 1.5rem auto;
+    }
+    
+    .card-img-top {
+        padding-top: 75%; /* Proporción 4:3 para móviles */
+    }
+}
+
+/* Estilos para galerías de imágenes */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+    margin: 1.5rem 0;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+/* Estilos para las categorías */
+.cat-links a {
+    color: var(--link-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.cat-links a:hover {
+    color: var(--link-hover-color);
+    text-decoration: underline;
+}
+
+/* Estilos para los títulos de las categorías en las tarjetas */
+.card-footer .cat-links {
+    margin-bottom: 0.5rem;
+}
+
+.card-footer .cat-links a {
+    font-size: 0.9rem;
+    padding: 0.25rem 0.5rem;
+    background-color: rgba(13, 110, 253, 0.1);
+    border-radius: 4px;
+    margin-right: 0.5rem;
+}
+
+.card-footer .cat-links a:hover {
+    background-color: rgba(13, 110, 253, 0.2);
+    text-decoration: none;
+}
+
+/* Estilos para las categorías en la barra lateral */
+.widget_categories ul li a {
+    color: var(--link-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.widget_categories ul li a:hover {
+    color: var(--link-hover-color);
+    text-decoration: underline;
+}
+
+/* Estilos para las categorías en el contenido */
+.entry-content .cat-links {
+    margin-bottom: 1rem;
+}
+
+.entry-content .cat-links a {
+    font-size: 0.9rem;
+    padding: 0.25rem 0.5rem;
+    background-color: rgba(13, 110, 253, 0.1);
+    border-radius: 4px;
+    margin-right: 0.5rem;
+}
+
+.entry-content .cat-links a:hover {
+    background-color: rgba(13, 110, 253, 0.2);
+    text-decoration: none;
+}
+
+/* Estilos para widgets del footer */
+.footer-widgets {
+    background-color: var(--footer-bg-color, #f8f9fa);
+    padding: 3rem 0;
+    margin-top: 3rem;
+}
+
+.footer-widget-area {
+    margin-bottom: 2rem;
+}
+
+.footer-widget-area .widget {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    margin-bottom: 1.5rem;
+}
+
+.footer-widget-area .widget-title {
+    color: var(--footer-text-color, #333);
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+}
+
+.footer-widget-area .widget-title:after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background: var(--footer-text-color, #333);
+}
+
+.footer-widget-area .widget ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-widget-area .widget ul li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.footer-widget-area .widget ul li:last-child {
+    border-bottom: none;
+}
+
+.footer-widget-area .widget ul li a {
+    color: var(--footer-text-color, #333);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    opacity: 0.8;
+}
+
+.footer-widget-area .widget ul li a:hover {
+    color: var(--footer-text-color, #333);
+    opacity: 1;
+    padding-left: 5px;
+}
+
+/* Estilos específicos para widgets de búsqueda en el footer */
+.footer-widget-area .widget_search .search-form {
+    position: relative;
+}
+
+.footer-widget-area .widget_search .search-field {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--footer-text-color, #333);
+    transition: all 0.3s ease;
+}
+
+.footer-widget-area .widget_search .search-field:focus {
+    border-color: rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.15);
+    outline: none;
+}
+
+.footer-widget-area .widget_search .search-submit {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    padding: 0 1rem;
+    background: transparent;
+    border: none;
+    color: var(--footer-text-color, #333);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.footer-widget-area .widget_search .search-submit:hover {
+    color: var(--footer-text-color, #333);
+    opacity: 1;
+}
+
+/* Estilos para widgets de categorías en el footer */
+.footer-widget-area .widget_categories select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--footer-text-color, #333);
+    cursor: pointer;
+}
+
+/* Estilos para widgets de etiquetas en el footer */
+.footer-widget-area .tagcloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.footer-widget-area .tagcloud a {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--footer-text-color, #333);
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 0.875rem !important;
+    transition: all 0.3s ease;
+    opacity: 0.8;
+}
+
+.footer-widget-area .tagcloud a:hover {
+    background: rgba(255, 255, 255, 0.2);
+    color: var(--footer-text-color, #333);
+    opacity: 1;
+}
+
+/* Estilos para widgets de texto en el footer */
+.footer-widget-area .widget_text {
+    color: var(--footer-text-color, #333);
+    opacity: 0.8;
+}
+
+.footer-widget-area .widget_text p:last-child {
+    margin-bottom: 0;
+}
+
+/* Estilos para widgets de calendario en el footer */
+.footer-widget-area .widget_calendar table {
+    width: 100%;
+    border-collapse: collapse;
+    color: var(--footer-text-color, #333);
+}
+
+.footer-widget-area .widget_calendar caption {
+    caption-side: top;
+    text-align: center;
+    font-weight: 600;
+    padding: 0.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px 4px 0 0;
+}
+
+.footer-widget-area .widget_calendar th,
+.footer-widget-area .widget_calendar td {
+    text-align: center;
+    padding: 0.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.footer-widget-area .widget_calendar th {
+    background: rgba(255, 255, 255, 0.1);
+    font-weight: 600;
+}
+
+.footer-widget-area .widget_calendar tfoot td {
+    border: none;
+    padding-top: 0.5rem;
+}
+
+.footer-widget-area .widget_calendar tfoot a {
+    color: var(--footer-text-color, #333);
+    text-decoration: none;
+    opacity: 0.8;
+}
+
+.footer-widget-area .widget_calendar tfoot a:hover {
+    opacity: 1;
+}
+
+/* Ajustes responsivos para widgets del footer */
+@media (max-width: 768px) {
+    .footer-widgets {
+        padding: 2rem 0;
+    }
+    
+    .footer-widget-area {
+        margin-bottom: 2rem;
+    }
+    
+    .footer-widget-area .widget-title {
+        font-size: 1.1rem;
+    }
+} 

@@ -1,0 +1,54 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+
+tu-nombre-de-theme/
+├── style.css             # Hoja de estilos principal e información del theme (¡obligatorio!)
+├── index.php             # Plantilla principal de fallback (¡obligatorio!)
+├── functions.php         # Funciones del theme, registro de menús, sidebars, encolado de scripts/styles
+├── header.php            # Plantilla para la cabecera (<head> y apertura de <body>)
+├── footer.php            # Plantilla para el pie de página (cierre de <body>, scripts)
+├── sidebar.php           # Plantilla para la(s) barra(s) lateral(es) (opcional)
+├── screenshot.png        # Captura de pantalla para la vista previa del theme (opcional pero recomendado, 1200x900px)
+│
+├── assets/               # Directorio para todos los recursos estáticos
+│   ├── css/              # Archivos CSS adicionales o preprocesados (Sass/Less compilados)
+│   │   └── main.css      # Ejemplo de CSS compilado o adicional
+│   ├── js/               # Archivos JavaScript
+│   │   └── main.js       # Ejemplo de JS del theme
+│   ├── images/           # Imágenes del theme (logos, iconos, fondos)
+│   ├── fonts/            # Fuentes personalizadas (si las usas)
+│
+├── inc/                  # (Includes) Archivos PHP con funcionalidades específicas (para organizar functions.php)
+│   ├── setup.php         # Configuración inicial del theme (soportes, tamaños de imagen)
+│   ├── enqueue.php       # Lógica para encolar scripts y estilos
+│   ├── template-tags.php # Funciones personalizadas para usar en las plantillas (ej: metadatos de post)
+│   ├── customizer.php    # Configuración del Personalizador de WordPress (opcional)
+│   ├── extras.php        # Funciones adicionales o helpers (opcional)
+│   └── ...               # Otros módulos (ej: compatibilidad con WooCommerce, widgets personalizados)
+│
+├── languages/            # Archivos de traducción (.pot, .po, .mo)
+│   └── tu-nombre-de-theme.pot # Archivo POT base para traducciones
+│
+├── template-parts/       # Fragmentos de plantillas reutilizables (usados con get_template_part())
+│   ├── content.php       # Plantilla para mostrar el contenido de un post en bucles (ej: blog, archivo)
+│   ├── content-page.php  # Plantilla para mostrar el contenido de una página
+│   ├── content-single.php# Plantilla para mostrar el contenido de un post individual
+│   ├── content-none.php  # Plantilla para cuando no hay posts que mostrar
+│   ├── navigation.php    # Ejemplo: Navegación entre posts o paginación
+│   ├── header/           # (Opcional) Subdirectorio para partes específicas de la cabecera
+│   │   └── site-branding.php # Ejemplo: Logo y título del sitio
+│   ├── footer/           # (Opcional) Subdirectorio para partes específicas del pie de página
+│
+├── page.php              # Plantilla para páginas estáticas individuales (si no se usa una más específica)
+├── single.php            # Plantilla para entradas de blog individuales (si no se usa una más específica)
+├── archive.php           # Plantilla para archivos (categorías, etiquetas, fechas, autores)
+├── search.php            # Plantilla para los resultados de búsqueda
+├── 404.php               # Plantilla para la página de error "No encontrado"
+├── comments.php          # Plantilla para mostrar comentarios y el formulario (opcional)
+│
+├── README.md             # (Opcional pero buena práctica) Información sobre el theme, instalación, etc.
+├── composer.json         # (Opcional) Si usas Composer para dependencias PHP
+├── package.json          # (Opcional) Si usas npm/yarn para dependencias JS/CSS y herramientas de build

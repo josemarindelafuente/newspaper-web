@@ -1,0 +1,63 @@
+/* Estilos para el menú centrado (logo en medio) */
+.menu-layout-centered .navbar {
+    padding: 1rem 0;
+}
+
+.menu-layout-centered .navbar-collapse {
+    flex-grow: 0;
+}
+
+.menu-layout-centered .navbar-nav {
+    margin: 0 auto;
+}
+
+.menu-layout-centered .nav-item {
+    margin: 0 0.5rem;
+}
+
+.menu-layout-centered .nav-link {
+    padding: 0.5rem 1rem;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.menu-layout-centered .nav-link:hover {
+    color: #007bff;
+}
+
+.menu-layout-centered .nav-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.menu-layout-centered .nav-link:hover::before {
+    border-color: var(--primary-color);
+    transform: scale(1.1);
+}
+
+/* Responsive */
+@media (max-width: 991.98px) {
+    .menu-layout-centered .navbar-collapse {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: #fff;
+        z-index: 1000;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    
+    .menu-layout-centered .navbar-nav {
+        margin: 0;
+    }
+    
+    .menu-layout-centered .nav-item {
+        margin: 0.5rem 0;
+    }
+} 

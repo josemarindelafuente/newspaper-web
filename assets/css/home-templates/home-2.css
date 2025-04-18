@@ -1,0 +1,59 @@
+/* Estilos para la plantilla Home Design 2 */
+.home-template-2 .card-title a,
+.home-template-2 .featured-post .card-title a {
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.home-template-2 .featured-post {
+    border-bottom: 2px solid var(--link-color);
+    margin-bottom: 2rem;
+}
+
+.home-template-2 .featured-post .card {
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.home-template-2 .featured-post .card-img-top {
+    height: 400px;
+    object-fit: cover;
+}
+
+.home-template-2 .grid-post .card {
+    height: 100%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.home-template-2 .grid-post .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.home-template-2 .grid-post .card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+
+.home-template-2 .pagination {
+    margin-top: 2rem;
+}
+
+.home-template-2 .pagination .page-numbers {
+    padding: 0.5rem 1rem;
+    margin: 0 0.25rem;
+    border: 1px solid var(--link-color);
+    border-radius: 4px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.home-template-2 .pagination .page-numbers.current {
+    background-color: var(--link-color);
+    color: white;
+}
+
+.home-template-2 .pagination .page-numbers:hover:not(.current) {
+    background-color: var(--link-color);
+    color: white;
+} 

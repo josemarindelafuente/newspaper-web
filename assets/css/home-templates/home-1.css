@@ -1,0 +1,83 @@
+/* Estilos para la plantilla Home Design 1 */
+.home-template-1 .home-article {
+    background: #fff;
+    border-radius: 4px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    margin-bottom: 5px;
+}
+
+.home-template-1 .home-article:hover {
+    transform: translateY(-1px);
+    
+}
+
+.home-template-1 .article-header {
+    /*padding: 1.5rem;*/
+   
+}
+
+
+
+.home-template-1 .article-title a {
+    color: var(--link-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.home-template-1 .article-title a:hover {
+    color: var(--link-hover-color);
+}
+
+.home-template-1 .article-meta {
+    font-size: 0.875rem;
+    color: #666;
+}
+
+.home-template-1 .article-date {
+    margin-right: 1rem;
+}
+
+.home-template-1 .article-thumbnail {
+    position: relative;
+    overflow: hidden;
+}
+
+.home-template-1 .article-thumbnail img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.home-template-1 .article-thumbnail:hover img {
+    transform: scale(1.05);
+}
+
+.home-template-1 .pagination {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.home-template-1 .pagination .page-numbers {
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--link-color);
+    color: var(--link-color);
+    border-radius: 4px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.home-template-1 .pagination .page-numbers.current {
+    background-color: var(--link-color);
+    color: white;
+    border-color: var(--link-color);
+}
+
+.home-template-1 .pagination .page-numbers:hover:not(.current) {
+    background-color: var(--link-color);
+    color: white;
+    border-color: var(--link-color);
+} 

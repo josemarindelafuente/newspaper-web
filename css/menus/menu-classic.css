@@ -1,0 +1,60 @@
+/* Estilos para el menú clásico (horizontal, derecha) */
+.menu-layout-classic .navbar {
+    padding: 1rem 0;
+}
+
+.menu-layout-classic .navbar-nav {
+    margin-left: auto;
+}
+
+.menu-layout-classic .nav-item {
+    margin-left: 1rem;
+}
+
+.menu-layout-classic .nav-link {
+    padding: 0.5rem 1rem;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.menu-layout-classic .nav-link:hover {
+    color: #007bff;
+}
+
+.menu-layout-classic .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.menu-layout-classic .nav-link:hover::after {
+    width: 100%;
+}
+
+/* Responsive */
+@media (max-width: 991.98px) {
+    .menu-layout-classic .navbar-collapse {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: #fff;
+        z-index: 1000;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    
+    .menu-layout-classic .navbar-nav {
+        margin-left: 0;
+    }
+    
+    .menu-layout-classic .nav-item {
+        margin-left: 0;
+        margin-bottom: 0.5rem;
+    }
+} 
