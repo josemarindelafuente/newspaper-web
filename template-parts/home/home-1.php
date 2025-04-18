@@ -157,7 +157,7 @@ $column2_categories = isset($options['home1_column2_categories']) ? $options['ho
 
         <!-- Tercera columna - Widgets -->
         <div class="col-md-4">
-            <div class="sidebar">
+            <div class="sidebar">                
                 <?php if (is_active_sidebar('home-sidebar')) : ?>
                     <?php dynamic_sidebar('home-sidebar'); ?>
                 <?php endif; ?>

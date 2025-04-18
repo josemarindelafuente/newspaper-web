@@ -337,7 +337,7 @@ function newspaperweb_widgets_init() {
         'id'            => 'home-sidebar',
         'description'   => __('Agrega widgets aquí para que aparezcan en la barra lateral de la página de inicio.', 'newspaperweb'),
         'before_widget' => '<div id="%1$s" class="card mb-4 widget %2$s">',
-        'after_widget'  => '</div></div>',
+        'after_widget'  => '</div>',
         'before_title'  => '<div class="card-header"><h3 class="widget-title h5 mb-0">',
         'after_title'   => '</h3></div><div class="card-body">',
     ));
