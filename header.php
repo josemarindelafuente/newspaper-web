@@ -6,6 +6,10 @@ $navbar_class = ($navbar_scheme === 'dark') ? 'navbar-dark' : 'navbar-light';
 // Obtener las opciones del tema
 $options = get_option('newspaperweb_options');
 $menu_layout = isset($options['menu_layout']) ? $options['menu_layout'] : 'classic';
+
+// Detectar si estamos en home-2.php (modo oscuro)
+$template = get_post_meta(get_the_ID(), '_wp_page_template', true);
+$is_dark_mode = ($template === 'template-parts/home/home-2.php');
 ?>
 
 <!DOCTYPE html>
@@ -25,9 +29,46 @@ $menu_layout = isset($options['menu_layout']) ? $options['menu_layout'] : 'class
         echo $options['google_analytics_code'];
     }
     ?>
+    <style>
+        <?php if ($is_dark_mode): ?>
+        body {
+            background-color: #1a1a1a;
+            color: #ffffff;
+        }
+        .header-ads-container {
+            background-color: #2d2d2d !important;
+            border-color: #3d3d3d !important;
+        }
+        .alert-info {
+            background-color: #2d2d2d;
+            border-color: #3d3d3d;
+            color: #ffffff;
+        }
+        .card {
+            background-color: #2d2d2d;
+            border-color: #3d3d3d;
+        }
+        .card-header {
+            background-color: #2d2d2d;
+            border-bottom-color: #3d3d3d;
+            color: #ffffff;
+        }
+        .card-body {
+            color: #ffffff;
+        }
+        .widget {
+            background-color: #2d2d2d;
+            border-color: #3d3d3d;
+        }
+        .widget-title {
+            color: #ffffff;
+            border-bottom-color: #3d3d3d;
+        }
+        <?php endif; ?>
+    </style>
     <?php wp_head(); ?>
 </head>
-<body <?php body_class(); ?>>
+<body <?php body_class($is_dark_mode ? 'dark-mode' : ''); ?>>
 <?php wp_body_open(); ?>
 
 <header class="site-header border-bottom">

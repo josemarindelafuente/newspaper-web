@@ -22,7 +22,15 @@ $column2_categories = isset($options['home1_column2_categories']) ? $options['ho
     :root {
         --link-color: <?php echo esc_attr($link_color); ?>;
         --link-hover-color: <?php echo esc_attr($link_hover_color); ?>;
+        --background-color:rgb(255, 255, 255);
     }
+
+    .header-ads-container {
+        background-color:#fff;
+    }
+
+
+
     .article-title {
         font-size: <?php echo esc_attr($headings_font_size); ?>;
     }
